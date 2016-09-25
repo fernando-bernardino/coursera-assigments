@@ -28,10 +28,10 @@
   <div class="container">
   <h1>Shopping List Check Off</h1>
 
-  <div class="row" ng-controller="BuyController as buy">
+  <div class="row">
 
     <!-- To Buy List -->
-    <div class="col-md-6" ng-controller="ToBuyController as toBuy">
+    <div class="col-md-6"  ng-controller="ToBuyShoppingController as toBuy">
      <h2>To Buy:</h2>
      <ul>
        <li ng-repeat="item in toBuy.basket">
@@ -44,14 +44,14 @@
     </div>
 
     <!-- Already Bought List -->
-    <div class="col-md-6">
+    <div class="col-md-6" ng-controller="AlreadyBoughtShoppingController as bought">
      <h2>Already Bought:</h2>
      <ul>
-       <li ng-repeat="item in boughtBasket">
+       <li ng-repeat="item in bought.basket">
          Bought {{ item.quantity }} {{ item.name }}
        </li>
      </ul>
-     <div class="emptyMessage" ng-if="boughtBasket.length == 0">Nothing bought yet.</div>
+     <div class="emptyMessage" ng-if="bought.basket.length == 0">Nothing bought yet.</div>
     </div>
   </div>
 </div>
