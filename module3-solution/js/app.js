@@ -5,7 +5,7 @@
     .controller('NarrowItDownController', NarrowItDownController)
     .service('MenuSearchService', MenuSearchService)
     .filter('name', NameFilter)
-    .constant('ApiBasePath', "http://davids-restaurant.herokuapp.com")
+    .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com")
     .directive('foundItems', FoundItemsDirective);
 
   NarrowItDownController.$inject = ['$scope', 'MenuSearchService'];
