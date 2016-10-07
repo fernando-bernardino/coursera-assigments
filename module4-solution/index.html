@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" ng-app="MenuApp">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+<body ng-controller="MenuController as menu">
+  <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+          <div class="navbar-header">
+            <ul class="nav navbar-nav">
+              <li ui-sref-active="active">
+                <a ui-sref="home">Home</a>
+              </li>
+              <li ui-sref-active="active">
+                <a ui-sref="categories">Categories</a>
+              </li>
+            </ul>
+          </div>
+      </div>
+  </nav>
+  <div class="container">
+      <div class="row top-buffer">
+          <div class="col-xs-8 col-xs-offset-2">
+              <ui-view></ui-view>
+          </div>
+      </div>
+  </div>
+  <script src="lib/angular.js"></script>
+  <script src="lib/angular-ui-router.min.js"></script>
+
+  <script src="js/menu.module.js"></script>
+
+  <script src="js/menu.controller.js"></script>
+  <script src="js/categories.controller.js"></script>
+  <script src="js/categories.service.js"></script>
+  <script src="js/items.controller.js"></script>
+
+  <script src="js/routes.js"></script>
+
+  <script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.17.0'><\/script>".replace("HOST", location.hostname));
+	//]]></script>
+</body>
+</html>
