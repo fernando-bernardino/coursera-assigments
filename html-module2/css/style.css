@@ -1,0 +1,55 @@
+h1 {
+	text-align: center;
+}
+.menu {
+	box-sizing: border-box;
+	border: 1px solid black;
+	margin: 5px;
+	background-color: lightgrey;
+}
+.menu-name {
+	width: 100px;
+	text-align: center;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	float: right;
+	right: 2px;
+	padding: 2px;
+	font-weight: bold;
+}
+.pink-background {
+	background-color: pink;
+}
+.red-background {
+	background-color: red;
+}
+.yellow-background {
+	background-color: yellow;
+}
+.menu-content {
+	padding: 2px;
+	display: block;
+	clear: right;
+	margin-top: 25px;
+}
+
+@media (min-width: 920px) {
+	.menu {
+		width: 30%;
+		float: left;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.menu {
+		width: 45%;
+		float: left;
+	}
+	.last {
+		width: 91%;
+		float: left;
+	}
+}
+
+@media (max-width: 767px) {
+}
