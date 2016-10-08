@@ -1,7 +1,3 @@
 <h1>Categories</h1>
-<ul>
-  <li class="link" ng-repeat="category in categories.list"
-      ui-sref="items({itemId: category.short_name})">
-    {{ category.name }}
-  </li>
-</ul>
+
+<categories-list list="categories.list" on-load="categories.loadCategory(categoryCode)"></categories-list>

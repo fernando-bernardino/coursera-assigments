@@ -9,8 +9,3 @@ input[type="text"] {
   float: left;
   margin-left: 10px;
 }
-.link {
-  color: blue;
-  text-decoration: underline;
-  cursor: pointer;
-}
