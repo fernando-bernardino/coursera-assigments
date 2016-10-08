@@ -30,7 +30,7 @@ h1 {
 	padding: 2px;
 	display: block;
 	clear: right;
-	margin-top: 25px;
+	margin: 30px 10px 10px 10px;
 }
 
 @media (min-width: 920px) {
