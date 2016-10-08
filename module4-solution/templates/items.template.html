@@ -1,7 +1,3 @@
 <h1>Item details for category {{ itemsList.category }}</h1>
-<table>
-  <tr><th>Name</th><th>Description</th></tr>
-  <tr ng-repeat="item in itemsList.list">
-    <td><b>{{ item.short_name }}</b> - {{ item.name }}</td><td>{{ item.description }}</td>
-  </tr>
-</table>
+
+<items-list list="itemsList.list"><items-list>
