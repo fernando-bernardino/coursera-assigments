@@ -1,0 +1,37 @@
+#menu-rows div {
+	background-color: lightGrey;
+}
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+	#menu-rows div {
+		margin: 30px 0;
+	}
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+	#menu-rows div {
+		margin: 25px 0;
+	}
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+	#menu-rows div {
+		margin: 20px 0;
+	}
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+	#menu-rows div {
+		margin: 15px 0;
+	}
+}
+
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+	#menu-rows div {
+		margin: 10px 0;
+	}
+}
