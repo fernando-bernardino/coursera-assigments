@@ -1,0 +1,9 @@
+/*  change properties of tag H1 */
+h1 {
+  /*  align text to centre */
+  text-align: center;
+  /*  set text color to red */
+  color: red;
+  /*  set font size to 30 px */
+  font-size: 30px;
+}
