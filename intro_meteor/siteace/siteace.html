@@ -1,0 +1,179 @@
+<head>
+  <title>Siteace</title>
+</head>
+
+<body>
+</body>
+
+<template name="home">
+
+  {{> navbar}}
+
+	<div class="container">
+		{{> website_form}}
+		{{> website_list}}
+	</div>
+
+</template>
+
+<template name="navbar">
+	<!-- navbar  - you will be putting the login functions here -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/">
+	        Site Ace
+	      </a>
+	    </div> <!-- / navbar-header -->
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <form id="custom-search-input" class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" title="Search in Title, Description and URL fields. Empty search clears filter">
+          </div>
+          <button class="btn btn-info btn-lg js-search" type="button">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+           {{> loginButtons }}
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+  	  </div><!-- /.container-fluid -->
+	</nav>
+</template>
+
+<template name="website_form">
+	<a class="btn btn-default js-toggle-website-form" href="#">
+  		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+	</a>
+	<div id="website_form" class="hidden_div add-form">
+		<form class="js-save-website-form">
+		  <div class="form-group">
+		    <label for="url">Site address *</label>
+		    <input type="text" class="form-control" id="url" placeholder="http://www.mysite.com" required>
+		  </div>
+		  <div class="form-group">
+		    <label for="title">Title *</label>
+		    <input type="text" class="form-control" id="title" placeholder="Mysite" required>
+		  </div>
+		    <div class="form-group">
+		    <label for="description">Description *</label>
+		    <input type="text" class="form-control" id="description" placeholder="I found this site really useful for ..." required>
+		  </div>
+
+		  <button type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
+
+  <div class="modal fade" id="notLoggedModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Not logged in</h4>
+        </div>
+        <div class="modal-body">
+          <p>If you want to post new websites, register. It's easy and simple.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>
+
+<!-- template that displays several website items -->
+<template name="website_list">
+	<div class="row website-list">
+	  {{#each websites}}
+	    {{>website_item}}
+	  {{/each}}
+  </div>
+</template>
+
+<!-- template that displays individual website entries -->
+<template name="website_item">
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 website-item">
+  <a href="/website/{{_id}}">
+	   <span class="website-title">{{title}}</span>
+  </a>
+  <a href="{{url}}" target="_blank" title="Go to website"><span class="glyphicon glyphicon glyphicon-share-alt got-to" aria-hidden="true"></span></a>
+  <a href="/website/{{_id}}" class="website-item">
+  	<p class="website-description">
+  		{{description}}
+  	</p>
+  </a>
+  <p class="website-creation">
+		Added on: {{formatDate createdOn}}
+	</p>
+  <div class="votes-container">
+  	<a href="#" class="btn btn-default btn-sm js-upvote">
+  		<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+  	</a>
+    <span class="votes votes-up">{{votesUp}}</span>
+
+  	<a href="#" class="btn btn-default btn-sm js-downvote">
+  		<span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+  	</a>
+    <span class="votes votes-down">{{votesDown}}</span>
+  </div>
+</div>
+</template>
+
+<template name="website">
+
+  {{> navbar_without_search}}
+
+  <div  class="container">
+    <h2>
+  	   <span class="website-title">{{title}}</span>
+    </h2>
+    <p>
+      <b>URL:</b> <a href="{{url}}" target="_blank" title="Go to website">{{url}}</a>
+    </p>
+  	<p class="website-description">
+  		<b>Description:</b> {{description}}
+  	</p>
+    <p class="website-creation">
+  		<b>Added on:</b> {{formatDate createdOn}}
+  	</p>
+    <div class="votes-container">
+    	<a href="#" class="btn btn-default btn-sm js-upvote">
+    		<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+    	</a>
+      <span class="votes votes-up">{{votesUp}}</span>
+
+    	<a href="#" class="btn btn-default btn-sm js-downvote">
+    		<span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+    	</a>
+      <span class="votes votes-down">{{votesDown}}</span>
+    </div>
+    <div class="comment-section">
+        {{> commentsBox id=_id}}
+    </div>
+  </div>
+</template>
+<template name="navbar_without_search">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          Site Ace
+        </a>
+      </div> <!-- / navbar-header -->
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+           {{> loginButtons }}
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+  </nav>
+</template>
