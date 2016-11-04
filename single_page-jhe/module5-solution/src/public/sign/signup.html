@@ -49,10 +49,10 @@
       <input type="text"
         name="phone"
         ng-model="signCtrl.phone"
-        placeholder="Ph: ####-###-###"
-        pattern="(\d{4})-(\d{3})-(\d{3})">
+        placeholder="Ph: ###-###-####"
+        pattern="(\d{3})-(\d{3})-(\d{4})">
       <span ng-if="signForm.phone.$invalid && signForm.phone.$touched">
-        Phone number is not in correct format (eg: 0123-456-789)
+        Phone number is not in correct format (eg: 012-345-6789)
       </span>
       <br>
       <label for="favourite">Favourite Dish: </label>

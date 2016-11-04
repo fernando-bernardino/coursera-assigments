@@ -18,14 +18,6 @@ function SignController($http, ApiPath, SignService) {
     ctrl.dishExists = true;
     var menuItem = ctrl.favourite.toUpperCase();
 
-    service.signup({
-      firstName: ctrl.firstName,
-      lastName: ctrl.lastName,
-      email: ctrl.email,
-      phone: ctrl.phone,
-      menu_item: "AA"
-    });
-
     ctrl.message = "Your information has been saved.";
 
     var promise = $http({

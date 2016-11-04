@@ -16,6 +16,7 @@ function InfoController(ApiPath, SignService) {
     ctrl.firstName = info.firstName;
     ctrl.lastName = info.lastName;
     ctrl.email = info.email;
+    ctrl.phone = info.phone;
     ctrl.saved = true;
 
     if (!ctrl.phone) {
