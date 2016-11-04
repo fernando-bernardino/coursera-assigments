@@ -1,0 +1,26 @@
+<div class="container">
+  <h2 id="menu-categories-title" class="text-center">Your details</h2>
+  <div class="text-center">
+    <div ng-if="infoCtrl.saved">
+      <label>First Name:</label> {{infoCtrl.firstName}}<br>
+      <label>Last Name:</label> {{infoCtrl.lastName}}<br>
+      <label>E-mail Address:</label> {{infoCtrl.email}}<br>
+      <label>Phone:</label> {{infoCtrl.phone}}<br>
+      <label>Favourite Dish:</label><br>
+      <div>
+      <div class="menu-item-photo centered">
+        <div>{{infoCtrl.menu_item.short_name}}</div>
+        <img class="img-responsive" width="250" height="150" ng-src="{{infoCtrl.image}}" alt="Loading ...">
+      </div>
+      <div class="menu-item-description">
+        <h3 class="menu-item-title">{{infoCtrl.menu_item.name}}</h3>
+        <p class="menu-item-details">{{infoCtrl.menu_item.description}}</p>
+
+      </div>
+    </div>
+    </div>
+    <div ng-if='!infoCtrl.saved'>
+      You are not signed Up Yet. You can sign up <a ui-sref="public.sign">here</a>.
+    </div>
+  </div>
+</div>

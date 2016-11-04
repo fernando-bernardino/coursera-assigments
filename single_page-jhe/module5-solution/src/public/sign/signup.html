@@ -1,0 +1,77 @@
+<div class="container">
+  <h2 id="menu-categories-title" class="text-center">Sign up to our newsletter</h2>
+  <div>
+    <div class="highlight">If you want to stay updated of your news, please provide us with your details.</div>
+    <form name="signForm" novalidate>
+      <label for="firstName">First Name: </label>
+      <input type="text"
+        name="firstName"
+        ng-model="signCtrl.firstName"
+        placeholder="First Name"
+        minlength=2
+        required>
+      <span ng-if="signForm.firstName.$error.required
+                && signForm.firstName.$touched">
+        First name should be more than 2 characters long
+      </span>
+      <span ng-if="signForm.firstName.$error.minlength
+                && signForm.firstName.$touched">
+        First name should be more than 2 characters long
+      </span>
+      <br>
+      <label for="lastName">Last Name: </label>
+      <input type="text"
+        name="lastName"
+        ng-model="signCtrl.lastName"
+        placeholder="Last Name"
+        minlength=2
+        required>
+      <span ng-if="signForm.lastName.$error.required
+                && signForm.lastName.$touched">
+        Last name should be more than 2 characters long
+      </span>
+      <span ng-if="signForm.lastName.$error.minlength
+                && signForm.lastName.$touched">
+        Last name should be more than 2 characters long
+      </span>
+      <br>
+      <label for="email">E-mail: </label>
+      <input type="email"
+        name="email"
+        ng-model="signCtrl.email"
+        placeholder="E-mail Address"
+        required>
+      <span ng-if="signForm.email.$invalid && signForm.email.$touched">
+        Please provide e-mail address (eg: name@domain)
+      </span>
+      <br>
+      <label for="phone">Phone Number: </label>
+      <input type="text"
+        name="phone"
+        ng-model="signCtrl.phone"
+        placeholder="Ph: ####-###-###"
+        pattern="(\d{4})-(\d{3})-(\d{3})">
+      <span ng-if="signForm.phone.$invalid && signForm.phone.$touched">
+        Phone number is not in correct format (eg: 0123-456-789)
+      </span>
+      <br>
+      <label for="favourite">Favourite Dish: </label>
+      <input type="text"
+        name="favourite"
+        ng-model="signCtrl.favourite"
+        placeholder="Favourite menu item"
+        minlength="2"
+        required>
+      <span ng-if="signForm.favourite.$error.required && signForm.favourite.$touched">
+        You don't have a favourite dish? Sure you do!
+      </span>
+      <span ng-if="signForm.favourite.$error.pattern && signForm.favourite.$touched">
+        Dishes are at least 2 characters long (eg. AA or A11)
+      </span>
+      <span ng-if="!signCtrl.dishExists">No such menu number exists</span>
+      <br>
+      <input type="submit" value="Sign Up" ng-disabled="signForm.$invalid" ng-click="signCtrl.signup()">
+    </form>
+    <div class="highlight" ng-if='signCtrl.message'>{{signCtrl.message}}</div>
+  </div>
+</div>
